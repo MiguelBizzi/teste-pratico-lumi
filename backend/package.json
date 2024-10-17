@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/bcryptjs": "^2.4.6",
