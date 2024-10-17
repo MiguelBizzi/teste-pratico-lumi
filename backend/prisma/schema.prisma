@@ -12,3 +12,29 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Instalacao {
+  numInstalacao String   @id @map("num_instalacao")
+  faturas       Fatura[]
+
+  @@map("instalacoes")
+}
+
+model Fatura {
+  id                     Int      @id @default(autoincrement())
+  numCliente             String   @map("num_cliente")
+  mesReferencia          String   @map("mes_referencia")
+  energiaEletricaKWh     Int      @map("energia_eletrica_KWh")
+  energiaEletricaValor   Float    @map("energia_eletrica_valor")
+  energiaSCEEKWh         Int      @map("energia_SCEE_KWh")
+  energiaSCEEValor       Float    @map("energia_SCEE_valor")
+  energiaCompensadaKWh   Int      @map("energia_compensada_KWh")
+  energiaCompensadaValor Float    @map("energia_compensada_valor")
+  contribuIlumPublica    Float    @map("contribu_ilum_publica")
+  createdAt              DateTime @default(now()) @map("created_at")
+
+  instalacao    Instalacao @relation(fields: [numInstalacao], references: [numInstalacao])
+  numInstalacao String     @map("num_instalacao")
+
+  @@map("faturas")
+}
