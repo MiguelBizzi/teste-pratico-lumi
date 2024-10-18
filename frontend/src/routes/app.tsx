@@ -11,7 +11,7 @@ export default function AppLayout() {
             <h1 className="text-lg font-bold text-white">Dashboard Lumi</h1>
           </div>
 
-          <ul className="mt-4 flex flex-col gap-4">
+          <ul className="mt-4 flex flex-col gap-2">
             {NAV_LINKS.map((link) => (
               <NavItem key={link.route} link={link} />
             ))}

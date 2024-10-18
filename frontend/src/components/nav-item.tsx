@@ -20,10 +20,9 @@ export default function NavItem({ link }: Props) {
   return (
     <a key={link.route} href={link.route}>
       <Button
-        className={cn('w-full justify-start', {
-          'bg-green-800 text-white hover:bg-green-800': isActive,
-          'border border-white/30 bg-green-700 text-white hover:bg-green-800/30':
-            !isActive,
+        className={cn('w-full justify-start shadow-none', {
+          'bg-green-600 text-white hover:bg-green-600': isActive,
+          'bg-green-700 text-white hover:bg-green-600/60': !isActive,
         })}
       >
         <link.icon className="mr-2 size-4" /> {link.title}
