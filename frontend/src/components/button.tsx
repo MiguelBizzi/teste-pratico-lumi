@@ -2,7 +2,8 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 interface Props {
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'white'
+  className?: string
   children: React.ReactNode
   onClick?: () => void
   disabled?: boolean
@@ -10,6 +11,7 @@ interface Props {
 
 export default function Button({
   children,
+  className,
   variant = 'primary',
   onClick = () => {},
   disabled = false,
@@ -25,7 +27,10 @@ export default function Button({
             variant === 'primary',
           'bg-gray-700 text-white shadow hover:bg-gray-800':
             variant === 'secondary',
+          'bg-white text-gray-700 shadow hover:bg-gray-100':
+            variant === 'white',
         },
+        className,
       )}
     >
       {children}
