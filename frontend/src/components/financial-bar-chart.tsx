@@ -27,7 +27,7 @@ export default function FinancialBarChart({ data }: Props) {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="ValorTotal" fill="#ffc658" />
+          <Bar dataKey="ValorTotalSemGDR$" fill="#ffc658" />
           <Bar dataKey="EconomiaGDR" fill="#82ca9d" />
         </BarChart>
       </ResponsiveContainer>

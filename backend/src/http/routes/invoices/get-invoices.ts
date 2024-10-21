@@ -3,8 +3,20 @@ import { FastifyInstance } from 'fastify'
 
 export async function getInvoices(app: FastifyInstance) {
   app.get('/invoices', async (request, reply) => {
-    const invoices = await prisma.fatura.findMany()
+    const instalacoesWithFaturas = await prisma.instalacao.findMany({
+      select: {
+        numInstalacao: true,
+        faturas: {
+          select: {
+            id: true,
+            numCliente: true,
+            mesReferencia: true,
+            downloadPath: true,
+          },
+        },
+      },
+    })
 
-    return reply.status(200).send(invoices)
+    return reply.status(200).send(instalacoesWithFaturas)
   })
 }

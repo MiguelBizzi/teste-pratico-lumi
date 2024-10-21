@@ -31,6 +31,7 @@ export async function processInvoices() {
       await prisma.fatura.create({
         data: {
           ...faturaData,
+          downloadPath: file,
           instalacao: {
             connect: {
               numInstalacao: instalacao,

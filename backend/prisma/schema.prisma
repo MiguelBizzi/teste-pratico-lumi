@@ -31,6 +31,7 @@ model Fatura {
   energiaCompensadaKWh   Int      @map("energia_compensada_KWh")
   energiaCompensadaValor Float    @map("energia_compensada_valor")
   contribuIlumPublica    Float    @map("contribu_ilum_publica")
+  downloadPath           String   @map("download_path")
   createdAt              DateTime @default(now()) @map("created_at")
 
   instalacao    Instalacao @relation(fields: [numInstalacao], references: [numInstalacao])
